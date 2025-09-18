@@ -1,12 +1,13 @@
-function getActiveCategory() {
-    if (getActiveCategory.active_category === undefined) {
-        getActiveCategory.active_category = 0;
-    }
-    return getActiveCategory.active_category;
-}
-
-function setActiveCategory(active_category) {
-    get_active_category.active_category = active_category;
+function showCategory(tabIndex) {
+    const contentContainer = document.getElementById("content");
+    Array.from(contentContainer.children).forEach((element, index) => {
+        if (index == tabIndex) {
+            element.style.display = "block";
+        }
+        else {
+            element.style.display = "none";
+        }
+    })
 }
 
 function onError(errors) {
@@ -15,8 +16,19 @@ function onError(errors) {
         console.error(error);
 
         const message = document.createElement("div");
-        message.setAttribute("class", "message warning");
+        message.setAttribute("class", "message error");
         message.innerHTML = error.slice(0, 100);
+
+        messages.appendChild(message);
+    })
+}
+
+function onInfo(infos) {
+    messages = document.getElementById('messages');
+    infos.forEach((info) => {
+        const message = document.createElement("div");
+        message.setAttribute("class", "message warning");
+        message.innerHTML = info.slice(0, 100);
 
         messages.appendChild(message);
     })
@@ -32,8 +44,13 @@ async function getVideos() {
     });
 
     if (!response.ok) {
-        const text = await response.text();
-        throw new Error(`Error: ${response.status} ${text}`);
+        if (response.status == 422) {
+            onInfo(['Go to your account in order to upload a config']);
+            return;
+        } else {
+            const text = await response.text();
+            throw new Error(`Error: ${response.status} ${text}`);
+        }
     }
 
     const result = await response.json();
@@ -44,18 +61,6 @@ async function getVideos() {
 
     return result['result'];
 }
-
-window.addEventListener("load", async () => {
-    render_loading(true);
-    try {
-        videos = await getVideos();
-        renderVideoTabs(videos);
-    } catch (err) {
-        onError([err])
-    } finally {
-        render_loading(false);
-    }
-})
 
 async function onVideoSelect(element) {
     const url = element.getAttribute("video_url");
@@ -98,3 +103,17 @@ async function onVideoSelect(element) {
         onError([`Error ${response.status} ${text}`])
     }
 }
+
+window.addEventListener("load", async () => {
+    render_loading(true);
+    try {
+        videos = await getVideos();
+        if (videos) {
+            renderVideoTabs(videos);
+        }
+    } catch (err) {
+        onError([err])
+    } finally {
+        render_loading(false);
+    }
+})

@@ -37,8 +37,7 @@ function createTabButtons(tabsContainer, categories) {
     categories.forEach((category, index) => {
         const btn = document.createElement("button");
         btn.textContent = category;
-        btn.style.marginRight = "8px";
-        btn.onclick = () => showCategory(category);
+        btn.onclick = () => showCategory(index);
         tabsContainer.appendChild(btn);
     });
 }
@@ -84,16 +83,13 @@ function renderVideoTabs(data) {
     const categories = Object.keys(data);
 
     createTabButtons(tabsContainer, categories);
-    const activeIndex = getActiveCategory();
-
     categories.forEach((category, index) => {
         const content = document.createElement("div");
         createVideoContainers(data, index, categories, content);
 
-        if (index != activeIndex) {
+        if (index != 0) {
             content.style.display = 'none';
         }
-
         contentContainer.appendChild(content);
     });
 }

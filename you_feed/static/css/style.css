@@ -4,9 +4,7 @@
   --heading-font: "Fira Mono", monospace;
   --subheading-font: "Geist Mono", monospace;
   --button-font: "Fira Mono", monospace;
-}
 
-:root:not(.dark) {
   --background-color: #ffffff;
   --header-color: #ffffff;
   --header-border-color: #eeeeee;
@@ -29,7 +27,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root:not(.light):not(.dark) {
+  :root {
     --background-color: #2b2b2b;
     --header-color: #222222;
     --header-border-color: #222222;
@@ -50,9 +48,6 @@
     --message-success-background-color: #00590a26;
     --message-success-border-color: #00590a26;
   }
-}
-
-:root.dark {
 }
 
 body {

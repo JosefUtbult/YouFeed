@@ -116,7 +116,7 @@ def update(request):
     try:
         user_config = UserChannelConfig.objects.get(user=request.user)
     except UserChannelConfig.DoesNotExist:
-        return JsonResponse({"error": "UserChannelConfig does not exist"}, status=404)
+        return JsonResponse({"error": "UserChannelConfig does not exist"}, status=422)
 
     errors = []
 
@@ -147,7 +147,7 @@ def register_viewed(request):
     try:
         user_config = UserChannelConfig.objects.get(user=request.user)
     except UserChannelConfig.DoesNotExist:
-        return JsonResponse({"error": "UserChannelConfig does not exist"}, status=404)
+        return JsonResponse({"error": "UserChannelConfig does not exist"}, status=422)
 
     try:
         data = json.loads(request.body)

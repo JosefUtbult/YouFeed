@@ -15,31 +15,5 @@ function getCookie(name) {
             return c.substring(cname.length, c.length);
         }
     }
-    return "";
-}
-
-function getViewedVideos() {
-    const cookieData = getCookie("viewedVideos");
-    if (cookieData) {
-        try {
-            return JSON.parse(cookieData);
-        } catch {
-            return [];
-        }
-    }
-    return [];
-}
-
-function addViewedVideo(videoId) {
-    const viewed = getViewedVideos();
-    if (!viewed.includes(videoId)) {
-        viewed.push(videoId);
-        setCookie("viewedVideos", JSON.stringify(viewed));
-    }
-}
-
-function removeViewedVideo(videoId) {
-    const viewed = getViewedVideos();
-    const updated = viewed.filter(id => id !== videoId);
-    setCookie("viewedVideos", JSON.stringify(updated));
+    return null;
 }
