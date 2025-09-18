@@ -1,0 +1,101 @@
+{
+  "channels": {
+    "Intresting Stuff": [
+      [
+        {
+          "handle": "LOOKMUMNOCOMPUTER"
+        },
+        {
+          "handle": "BenEater"
+        },
+        {
+          "handle": "StuffMadeHere"
+        },
+        {
+          "handle": "timsway"
+        },
+        {
+          "handle": "urituchmanpigeon"
+        }
+      ],
+      [
+        {
+          "handle": "Acerola_t"
+        },
+        {
+          "handle": "Ididathing"
+        },
+        {
+          "handle": "simonegiertz"
+        },
+        {
+          "handle": "williamosman"
+        }
+      ],
+      [
+        {
+          "handle": "BringusStudios"
+        },
+        {
+          "handle": "BobbyDukeArts"
+        },
+        {
+          "handle": "nathanbaggs"
+        },
+        {
+          "handle": "laurakampf"
+        }
+      ]
+    ],
+    "Entertainment": [
+      [
+        {
+          "handle": "MrSamuelStreamer"
+        },
+        {
+          "handle": "MrSamuelStreamer2"
+        }
+      ],
+      [
+        {
+          "handle": "BobbyDukeArts"
+        },
+        {
+          "handle": "Solidjj"
+        },
+        {
+          "handle": "PapaMeat"
+        }
+      ],
+      [
+        {
+          "handle": "miniminuteman773"
+        },
+        {
+          "handle": "ManyKudos"
+        },
+        {
+          "handle": "KappaKaijuOfficial"
+        }
+      ]
+    ],
+    "Passive Listening": [
+      [
+        {
+          "handle": "FoldingIdeas"
+        },
+        {
+          "handle": "BigJoel"
+        },
+        {
+          "handle": "IHstorymode"
+        }
+      ],
+      [
+        {
+          "handle": "TheVileEye"
+        }
+      ]
+    ]
+  }
+}

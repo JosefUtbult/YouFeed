@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div id="tabs">
+        <button onclick="console.log('Here')">Interesting Stuff</button>
+        <button onclick="console.log('Here')">More Stuff</button>
+    </div>
+    <div id="container">
+        <div id="loading" style="display: none"></div>
+        <div id="content" style="display: none">
+            <div href="https://www.youtube.com/watch?v=0QbylUT7fos" onclick="onVideoSelect(this)">
+                <img src="https://i1.ytimg.com/vi/0QbylUT7fos/hqdefault.jpg" alt="USING A BIG PLASTIC DISK AND LOTS OF TAPE HEADS TO BUILD A TAPE DELAY?">
+                <a>
+                    <h3>USING A BIG PLASTIC DISK AND LOTS OF TAPE HEADS TO BUILD A TAPE DELAY?</h3>
+                </a>
+                <h4>LOOKMUMNOCOMPUTER</h4>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block additional_js %}
+    <script src="{% static 'js/index.js' %}"></script>
+    <script src="{% static 'js/render.js' %}"></script>
+    <script src="{% static 'js/cookies.js' %}"></script>
+{% endblock %}
+
+{% block additional_css %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+

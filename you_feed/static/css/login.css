@@ -1,0 +1,16 @@
+h1 {
+    text-align: center;
+}
+
+#container > div {
+    display: flex;
+    justify-content: space-around;
+}
+
+td {
+    padding: 0.4rem;
+}
+
+td .button {
+    width: 100%;
+}

@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Geist+Mono:wght@100..900&display=swap');
+
+:root {
+  --heading-font: "Fira Mono", monospace;
+  --subheading-font: "Geist Mono", monospace;
+  --button-font: "Fira Mono", monospace;
+}
+
+:root:not(.dark) {
+  --background-color: #ffffff;
+  --header-color: #ffffff;
+  --header-border-color: #eeeeee;
+
+  --text-color-hover: #000000;
+  --text-color: #111111;
+  --text-color-inactive: #333333;
+
+  --button-color: #ffcd6e;
+  --button-color-hover: #ffd967;
+
+  --message-error-background-color: #d9000070;
+  --message-error-border-color: #d9000070;
+
+  --message-warning-background-color: #ff8c2926;
+  --message-warning-border-color: #ff8c2926;
+
+  --message-success-background-color: #00e41a26;
+  --message-success-border-color: #005c0a08;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light):not(.dark) {
+    --background-color: #2b2b2b;
+    --header-color: #222222;
+    --header-border-color: #222222;
+
+    --text-color-hover: #ffffff;
+    --text-color: #cccccc;
+    --text-color-inactive: #141414;
+
+    --button-color: #a47316;
+    --button-color-hover: #b78900;
+
+    --message-error-background-color: #73000026;
+    --message-error-border-color: #7300004f;
+
+    --message-warning-background-color: #88420526;
+    --message-warning-border-color: #8842054f;
+
+    --message-success-background-color: #00590a26;
+    --message-success-border-color: #00590a26;
+  }
+}
+
+:root.dark {
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+
+  transition: all 0.25s ease;
+}
+
+header {
+  width: calc(100% - 2em);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+
+  padding: 0 1em;
+
+  background-color: var(--header-color);
+  color: var(--text-color);
+  border-bottom: solid 1px var(--header-border-color);
+}
+
+header #buttons {
+  display: flex;
+}
+
+header #buttons > *:not(:last-child) {
+  margin-right: 0.6rem;
+}
+
+.fullwidth {
+  width: 100%;
+  margin: 0.6rem 0;
+}
+
+.button {
+  display: block;
+  text-align: center;
+
+  font-family: var(--button-font);
+  background-color: var(--button-color);
+  color: var(--text-color);
+
+  font-size: 0.7rem;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+  user-select: none;
+
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.button:not(.fullwidth) {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.button:hover {
+  color: var(--text-color-hover);
+  background-color: var(--button-color-hover);
+}
+
+header h1 {
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 2em;
+
+  transition: color 0.2s ease;
+}
+
+header h1:hover {
+  color: var(--text-color-hover);
+}
+
+header #title {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+#container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.plaintext {
+  text-decoration: none;
+}
+
+#messages {
+  margin: 0 auto;
+  padding: 0;
+  max-width: 600px;
+}
+
+#messages > * {
+  margin: 1rem;
+}
+
+#messages .message {
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#messages .message.error {
+    background-color: var(--message-error-background-color);
+    border: solid 2px var(--message-error-border-color);
+    color: var(--text-color);
+}
+
+#messages .message.success {
+    background-color: var(--message-success-background-color);
+    border: solid 2px var(--message-success-border-color);
+    color: var(--text-color);
+}
+
+#messages .message.warning {
+    background-color: var(--message-warning-background-color);
+    border: solid 2px var(--message-warning-border-color);
+    color: var(--text-color);
+}

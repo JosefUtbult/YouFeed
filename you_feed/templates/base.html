@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YouFeed</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block additional_css %}{% endblock %}
+</head>
+<body>
+    <header>
+        <a id="title" href="{% url 'index' %}">
+            <h1>YouFeed</h1>
+        </a>
+        <div id="buttons">
+            {% if user.is_authenticated %}
+            <a class="plaintext" href="{% url 'account' %}">
+                <button class="button" type="button">{{ user }}</button>
+            </a>
+            {% endif %}
+        </div>
+    </header>
+
+    <div id="messages">
+        {% for message in messages %}
+            <div class="message {{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% block additional_errors %}{% endblock %}
+    </div>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <script src="{% static 'js/main.js' %}"></script>
+    {% block additional_js %}{% endblock %}
+</body>
+</html>

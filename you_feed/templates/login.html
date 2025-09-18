@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div id="container">
+        <h1>Login</h1>
+        <div>
+            <form method="post">
+                {% csrf_token %}
+
+                <table>
+                    <tr>
+                        <td>{{ form.username.label_tag }}</td>
+                        <td>{{ form.username }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form.password.label_tag }}</td>
+                        <td>{{ form.password }}</td>
+                    </tr>
+                    <tr>
+                        <td/>
+                        <td><button class="button" type="submit">Login</button></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block additional_css %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block additional_errors %}
+    {% if form.errors %}
+        <div class="messages">
+            <div class="message warning">Invalid username or password</div>
+        </div>
+    {% endif %}
+{% endblock %}

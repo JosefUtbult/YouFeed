@@ -1,0 +1,90 @@
+#tabs {
+  margin: 2em 0;
+  display: flex;
+  justify-content: center;
+}
+
+#tabs button {
+  background-color: inherit;
+  border: none;
+  border-left: solid var(--text-color) 1px;
+  padding: 0 0.6em;
+
+  cursor: pointer;
+  user-select: none;
+
+  color: var(--text-color);
+  font-family: var(--button-font);
+  font-style: normal;
+  font-size: 1.4em;
+  font-weight: 600;
+
+  transition: all 0.25s ease;
+}
+
+#tabs button:last-child {
+  border-right: solid var(--text-color) 1px;
+}
+
+#tabs button:hover,
+#tabs button.active {
+  color: var(--text-color-hover);
+}
+
+#content {
+  width: 100%;
+  color: var(--text-color);
+  transition: color 0.2s ease;
+
+  cursor: pointer;
+}
+
+#content:hover {
+  color: var(--text-color-hover);
+}
+
+#content img {
+  width: 100%;
+  border: 1px solid var(--text-color-hover);
+  border-radius: 10px;
+  z-index: 0;
+
+  opacity: 95%;
+  transition: opacity 0.2s ease;
+}
+
+#content:hover img {
+  opacity: 100%;
+}
+
+#content h3 {
+  font-family: var(--heading-font);
+  font-weight: 400;
+  font-style: normal;
+}
+
+#content h4 {
+  font-family: var(--subheading-font);
+  font-weight: 300;
+  font-style: normal;
+}
+
+#loading {
+  width: 80px;
+  height: 80px;
+  border: 10px solid var(--text-color);
+  border-top: 10px solid var(--button-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 50px auto;
+}
+
+@keyframes spin {
+  from {
+   transform: rotate(0deg);
+  }
+  to {
+   transform: rotate(360deg);
+  }
+}
+

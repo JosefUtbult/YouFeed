@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div id="container" class="list">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label class="button fullwidth" for="file-upload">Upload Config</label>
+            <input id="file-upload" type="file" name="file" style="display:none" onchange="this.form.submit()">
+        </form>
+        <a class="plaintext" href="{% static 'default_config.json' %}" download="">
+            <button class="button fullwidth" type="button">Download Example Config</button>
+        </a>
+        <a class="plaintext" href="#" download="">
+            <button class="button fullwidth" type="button">Download Config</button>
+        </a>
+        <form id="logout-form" method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button class="button fullwidth" type="submit">Logout</button>
+        </form>
+    </div>
+{% endblock %}
+
+{% block additional_js %}
+    <script src="{% static 'js/account.js' %}"></script>
+{% endblock %}
+
+{% block additional_css %}
+    <link rel="stylesheet" href="{% static 'css/account.css' %}">
+{% endblock %}
